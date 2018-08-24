@@ -16,7 +16,7 @@ In a nutshell, it's a set of L<Test::More>-like assertions
 that appends its results to a "report" object
 rather than standard output.
 
-This module allows to use L<Test::Deep> with L<Assert::Refute>
+This module allows to use L<Test::Deep> with L<Assert::Refute>:
 
     use Assert::Refute;
     use Assert::Refute::T::Deep;
@@ -32,6 +32,8 @@ This module allows to use L<Test::Deep> with L<Assert::Refute>
 
 =head1 EXPORT
 
+Whatever is exported by L<Test::Deep> is also re-exported by this module.
+
 =cut
 
 use parent qw(Exporter);
@@ -43,11 +45,15 @@ our @EXPORT      = @Test::Deep::EXPORT;
 our @EXPORT_OK   = @Test::Deep::EXPORT_OK;
 our %EXPORT_TAGS = %Test::Deep::EXPORT_TAGS;
 
-=head2 cmp_deeply
+=head2 cmp_deeply $got, $expected, "Message"
+
+Compare data and report discrepancies if found.
+This only works if an L<Assert::Refute> contract in being executed.
 
 =cut
 
 # Remove the implementation imported from Test::Deep
+#     to avoid redefine warnings.
 undef *cmp_deeply;
 
 build_refute cmp_deeply => sub {
@@ -61,12 +67,20 @@ Konstantin S. Uvarin, C<< <khedin at gmail.com> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-assert-refute-t-deep at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Assert-Refute-T-Deep>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+This module should be merged into either Assert::Refute or Test::Deep.
+Suggestions welcome.
 
+Please report bugs via github or RT:
 
+=over
 
+=item * L<https://github.com/dallaylaen/refute-t-deep-perl/issues>
+
+=item * C<bug-assert-refute-t-deep at rt.cpan.org>
+
+=item * L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Assert-Refute-T-Deep>
+
+=back
 
 =head1 SUPPORT
 
