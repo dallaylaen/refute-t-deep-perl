@@ -38,7 +38,7 @@ Whatever is exported by L<Test::Deep> is also re-exported by this module.
 
 use parent qw(Exporter);
 use Assert::Refute::Build;
-use Test::Deep qw(:all);
+use Test::Deep::NoTest qw(:all);
 
 # Blindly reexport whatever Test::Deep has
 our @EXPORT      = @Test::Deep::EXPORT;
