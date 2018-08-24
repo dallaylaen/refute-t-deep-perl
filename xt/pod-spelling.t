@@ -12,11 +12,8 @@ BEGIN {
     Test::Pod::Spelling->import(
         spelling => {
             allow_words => [qw[
-                Konstantin Uvarin Forsyth
-                falsifiability stringified
-                github metacpan annocpan CPAN
-                regex min max
-                diag isnt ok qr
+                Konstantin Uvarin
+                github metacpan annocpan CPAN RT
                 TBD
             ]],
         }
