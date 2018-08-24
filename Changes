@@ -1,0 +1,5 @@
+Revision history for Assert-Refute-T-Deep
+
+0.01    Fri Aug 24 2018
+        Implement cmp_deeply, reexport the rest of Test::Deep
+
